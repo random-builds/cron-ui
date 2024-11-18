@@ -1,3 +1,3 @@
 export const load = async ({ params }) => {
-    return {id: params.slug}
-}
+	return { id: params.slug };
+};

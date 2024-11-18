@@ -1,30 +1,29 @@
 <script lang="ts">
-    const MAX_SIZE = 200;
+	const MAX_SIZE = 200;
 
-    class Box {
-        width = $state("");
-        height = $state("");
-        area = $derived(this.width * this.height);
+	class Box {
+		width = $state('');
+		height = $state('');
+		area = $derived(this.width * this.height);
 
-        constructor(width: string, height: string) {
-            this.width = width;
-            this.height = height;
-        }
+		constructor(width: string, height: string) {
+			this.width = width;
+			this.height = height;
+		}
 
-        embiggen(amount: number) {
-            this.width += amount;
-            this.height += amount;
-        }
-    }
+		embiggen(amount: number) {
+			this.width += amount;
+			this.height += amount;
+		}
+	}
 
-    const box = new Box("oo", "pp");
+	const box = new Box('oo', 'pp');
 </script>
 
-
 <form id="createJobForm">
-    <input id="jobName" type="text" placeholder="Job Name" bind:value="{box.width}"/>
-    <br/>
-    <input id="jobDescription" type="text" placeholder="Job Description" bind:value="{box.height}"/>
+	<input id="jobName" type="text" placeholder="Job Name" bind:value={box.width} />
+	<br />
+	<input id="jobDescription" type="text" placeholder="Job Description" bind:value={box.height} />
 </form>
 {box.width}--
 {box.height}
