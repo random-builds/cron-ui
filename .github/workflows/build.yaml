@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: 22
       - run: |
+          npm install -g vitest
           npm run test:unit -- --run
       - run: |
           npm run lint
