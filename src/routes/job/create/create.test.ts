@@ -1,5 +1,4 @@
 import { expect, test } from 'vitest';
-import type { Schedule } from './helper';
 import { getCronString, compactCronString } from './helper';
 
 const placeholderArray: number[] = Array(60);

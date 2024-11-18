@@ -23,7 +23,7 @@ export function getCronString(schedule: Schedule) {
 	if (schedule.type === 'dow' && schedule.dayOfWeek.length === 0) {
 		throw new Error('dayOfWeek must not be empty');
 	}
-	let dayOfWeek, month, day, hour, minute;
+	let dayOfWeek, month, day;
 	if (schedule.type === 'dow') {
 		dayOfWeek = compactCronString(schedule.dayOfWeek, 7);
 		month = '*';
@@ -33,8 +33,8 @@ export function getCronString(schedule: Schedule) {
 		month = compactCronString(schedule.month, 12);
 		day = compactCronString(schedule.day, 31);
 	}
-	hour = compactCronString(schedule.hour, 24);
-	minute = compactCronString(schedule.minute, 60);
+	const hour = compactCronString(schedule.hour, 24);
+	const minute = compactCronString(schedule.minute, 60);
 	return minute + ' ' + hour + ' ' + day + ' ' + month + ' ' + dayOfWeek;
 }
 
